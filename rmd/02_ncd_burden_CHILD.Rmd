@@ -10,7 +10,10 @@ data_ncd <- read_csv(here("data/burden-of-disease-ncd.csv"))
 
 ```{r}
 # Filter the dataset to include only the three countries chosen by your group.
-data_ncd_mini <- "WRITE_YOUR_CODE_HERE"
+data_ncd_mini <- data_ncd %>% 
+  filter(Entity == c("South Africa","Switzerland","Angola"))
+
+
 ```
 
 ## Table of Estimates for NCD Burden Over Time
@@ -18,7 +21,13 @@ data_ncd_mini <- "WRITE_YOUR_CODE_HERE"
 ```{r}
 # Here render a table for the DALY burden over time for the three countries. 
 # You should pivot the data wider to show each country in a separate column.
-data_ncd_wide <- "WRITE_YOUR_CODE_HERE"
+data_ncd_wide <- data_ncd_mini %>%
+  select(!Code) %>% 
+  pivot_wider(names_from = Entity, values_from = `DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`) %>% 
+  arrange(Year)
+
+kable(data_ncd_wide)
+
 # Use kable() from the knitr package to render the table.
 ```
 
@@ -27,8 +36,12 @@ data_ncd_wide <- "WRITE_YOUR_CODE_HERE"
 ```{r}
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
 # NOTE: Use your long 'mini' data frame for plotting, not the wide data used for the table. 
+ggplot(data_ncd_mini, aes(x = Year, y = `DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`, col = Entity)) +
+  geom_line() +
+  theme_bw() +
+  labs(x = "Year", y = "DALY (Disability-adjusted life years)", col = "Country")
 ```
 
 ## Summary of NCD Burden Findings
 
-Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+From 1990 to 2019, Angola shows consistently higher DALY rates for non-communicable diseases compared to South Africa and Switzerland, with a gradual decline over the years. South Africa experiences fluctuations in DALYs, peaking in the late 1990s before gradually declining, while Switzerland consistently has the lowest DALY burden, reflecting a relatively lower impact of non-communicable diseases. Overall, all three countries show a general downward trend in the burden of non-communicable diseases over time.
