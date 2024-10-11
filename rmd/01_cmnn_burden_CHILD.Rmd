@@ -41,7 +41,7 @@ data_cmnn_mini_renamed <- data_cmnn_mini %>%
   rename(DALYs = `DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)
 
 
-daly_plot <-  ggplot(data_cmnn_mini_renamed, aes(x = Year, y = DALYs, colour = Entity)) + geom_line() + labs(title = "DALYs over time for South Africa, Switzerland and Angola", x = " Year", y = "Disability Adjusted Life Years (DALYs)", col = "Country")
+daly_plot <-  ggplot(data_cmnn_mini_renamed, aes(x = Year, y = DALYs, colour = Entity)) + geom_line() + labs(title = "DALYs over time for South Africa, Switzerland and Angola", x = "Year", y = "Disability Adjusted Life Years (DALYs)", col = "Country")
 
 daly_plot
 ```
