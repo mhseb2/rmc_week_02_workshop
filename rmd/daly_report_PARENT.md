@@ -21,7 +21,7 @@ The source data is from the Institute for Health Metrics and Evaluation
 
 # Communicable, Maternal, Neonatal, and Nutritional Disease Burden (CMNN)
 
-![]("rmd/daly_plot.png")
+
 
 ## Table of Estimates for CMNN Burden Over Time
 
