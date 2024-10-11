@@ -23,7 +23,7 @@ data_ncd_mini <- data_ncd %>%
 # You should pivot the data wider to show each country in a separate column.
 data_ncd_wide <- data_ncd_mini %>%
   select(!Code) %>% 
-  pivot_wider(names_from = Entity, values_from = `DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`) %>% 
+  pivot_wider(names_from = Year, values_from = `DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`) %>% 
   arrange(Year)
 
 kable(data_ncd_wide)
