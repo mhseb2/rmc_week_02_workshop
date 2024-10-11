@@ -22,9 +22,7 @@ data_ncd_mini <- data_ncd %>%
 # Here render a table for the DALY burden over time for the three countries. 
 # You should pivot the data wider to show each country in a separate column.
 data_ncd_wide <- data_ncd_mini %>%
-  select(!Code) %>% 
-  pivot_wider(names_from = Year, values_from = `DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`) %>% 
-  arrange(Year)
+  pivot_wider(names_from = Year, values_from = `DALYs (Disability-Adjusted Life Years) - Non-communicable diseases - Sex: Both - Age: Age-standardized (Rate)`) 
 
 kable(data_ncd_wide)
 
