@@ -22,8 +22,9 @@ data_cmnn_mini <- data_cmnn %>%
 data_cmnn_wide <- data_cmnn_mini %>% 
   pivot_wider(names_from = Year, values_from = `DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)
 
-kable(data_cmnn_wide, caption = "DALY burden over time for South Africa, Switzerland and Angola")
+Daly_table <- kable(data_cmnn_wide, caption = "DALY burden over time for South Africa, Switzerland and Angola")
 
+Daly_table
 
 
 
@@ -40,10 +41,11 @@ data_cmnn_mini_renamed <- data_cmnn_mini %>%
   rename(DALYs = `DALYs (Disability-Adjusted Life Years) - Communicable, maternal, neonatal, and nutritional diseases - Sex: Both - Age: Age-standardized (Rate)`)
 
 
-daly_plot <-  ggplot(data_cmnn_mini_renamed, aes(x = Year, y = DALYs, colour = Entity)) + geom_line() + labs(title = "DALYs over time for South Africa, Switzerland and Angola",
-                                                                                                             )
+daly_plot <-  ggplot(data_cmnn_mini_renamed, aes(x = Year, y = DALYs, colour = Entity)) + geom_line() + labs(title = "DALYs over time for South Africa, Switzerland and Angola", x = " Year", y = "Disability Adjusted Life Years (DALYs)", col = "Country")
+
+daly_plot
 ```
 
 ## Summary of CMNN Burden Findings
 
-Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+The table and the graph shows the burden of Communicable Maternal, Neonatal, and Nutritional Diseases in three selected countries: Angola South Africa, and Switzerland between 1900 and 2020. According to the chart the burden of diseases remain unchanged in Switzerland, while Angola a significant decrease in the burden of disease during 1900 and 2020 was observed. In South Africa, the burden diseases increased between 1990 and 2005 and it decreased between 2006 and 2020.
