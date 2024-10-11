@@ -29,9 +29,9 @@ DALY burden over time for South Africa, Switzerland and Angola
 
 ## Summary of CMNN Burden Findings
 
-Provide a brief analysis based on the data presented in the table and
-chart. Highlight any significant findings or patterns. About 3
-sentences.
+The table and the graph shows the DALY burden of Communicable Maternal, Neonatal, and Nutritional Diseases in three selected countries: Angola South Africa, and Switzerland between 1900 and 2020. 
+According to the chart the burden of diseases remain unchanged in Switzerland, while Angola a significant decrease in the burden of disease during 1900 and 2020 was observed. 
+In South Africa, the burden diseases increased between 1990 and 2005 and it decreased between 2006 and 2020.
 
 # Non-Communicable Disease Burden (NCD)
 
