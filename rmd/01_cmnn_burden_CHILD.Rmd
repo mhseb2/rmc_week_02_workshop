@@ -43,7 +43,7 @@ data_cmnn_mini_renamed <- data_cmnn_mini %>%
 
 daly_plot <-  ggplot(data_cmnn_mini_renamed, aes(x = Year, y = DALYs, colour = Entity)) + geom_line() + labs(title = "DALYs over time for South Africa, Switzerland and Angola", x = "Year", y = "Disability Adjusted Life Years (DALYs)", col = "Country")
 
-print(daly_plot)
+ggsave("daly_plot.png", plot= daly_plot)
 ```
 
 ## Summary of CMNN Burden Findings
