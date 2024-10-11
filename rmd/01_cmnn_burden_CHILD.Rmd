@@ -33,7 +33,7 @@ Daly_table
 
 ## Plot Showing Trends in CMNN Burden Over Time
 
-```{r}
+```{r fig.cap= "DALYs over time for South Africa, Switzerland and Angola", echo=FALSE}
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
 # NOTE: Use your long 'mini' data frame for plotting, not the wide data used for the table. 
 
