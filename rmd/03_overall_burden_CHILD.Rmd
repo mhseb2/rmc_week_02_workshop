@@ -10,7 +10,9 @@ data_overall <- read_csv(here("data/burden-of-disease-all-causes.csv"))
 
 ```{r}
 # Filter the dataset to include only the three countries chosen by your group.
-data_overall_mini <- "WRITE_YOUR_CODE_HERE"
+data_overall_mini <- data_overall %>%
+  filter(Entity %in% c("South Africa","Switzerland","Angola"))
+view(data_overall_mini)
 ```
 
 ## Table of Estimates for Overall Disease Burden Over Time
@@ -18,8 +20,12 @@ data_overall_mini <- "WRITE_YOUR_CODE_HERE"
 ```{r}
 # Here render a table for the DALY burden over time for the three countries. 
 # You should pivot the data wider to show each country in a separate column.
-data_overall_wide <- "WRITE_YOUR_CODE_HERE"
+data_overall_wide <- data_overall_mini %>%
+  pivot_wider(names_from = Year, values_from = `DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)
+view(data)
 # Use kable() from the knitr package to render the table.
+Daly_table <- kable(data_overall_wide, caption  = "Daly burden over time for South Africa, Switzerland and Angola")
+Daly_table
 ```
 
 ## Plot Showing Trends in Overall Disease Burden Over Time
@@ -27,8 +33,15 @@ data_overall_wide <- "WRITE_YOUR_CODE_HERE"
 ```{r}
 # Here, plot a line graph showing the trend of DALY burden for the chosen countries over time. You can use ggplot2 to create this plot. Each country's line should be a different color.
 # NOTE: Use your long 'mini' data frame for plotting, not the wide data used for the table. 
+data_overall_mini_short <- data_overall_mini %>%
+  rename(DALYs = `DALYs (Disability-Adjusted Life Years) - All causes - Sex: Both - Age: Age-standardized (Rate)`)
+
+Daly_line_graph <- ggplot(data_overall_mini_short, aes(x = Year , y = DALYs, color = Entity)) + geom_line() + labs(title = "DALYs over time for South Africa, Switzerland and Angola", col = "Country")
+
+ggsave("Daly_line_graph.png", plot = Daly_line_graph)
 ```
 
 ## Summary of Overall Disease Burden Findings
 
 Provide a brief analysis based on the data presented in the table and chart. Highlight any significant findings or patterns. About 3 sentences.
+The table and chart illustrate the overall burden of disease for South Africa, Switzerland and Angola between 1990 and 2020. While Switzerland had a constant decreasing trend between 1990 and 2020, South Africa and Angola both started observing a steady decreasing trend in 2005. By 2020, the overall burden of disease for South Africa and Angola was  about six times that of Switzerland.
